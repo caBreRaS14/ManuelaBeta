@@ -1,0 +1,24 @@
+# Blueprint de Render para la beta de Gearly (plan gratuito).
+# Se despierta tras ~15 min sin uso (el primer acceso tarda ~1 min) y el Postgres gratuito caduca a los ~30 días.
+databases:
+  - name: gearly-db
+    plan: free
+    databaseName: gearly
+
+services:
+  - type: web
+    name: gearly
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/salud
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: gearly-db
+          property: connectionString
+      - key: SESSION_SECURE
+        value: "true"
+      - key: GEARLY_CATALOGO
+        value: beta
+      - key: ADMIN_KEY          # clave de la vista de desarrollo y de /api/admin/exportar; Render la genera
+        generateValue: true

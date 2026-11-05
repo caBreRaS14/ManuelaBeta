@@ -1,0 +1,11 @@
+**/node_modules
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/dist
+backend/gearly.db
+backend/.env
+backend/tests
+evidencias
+docs
+.vscode

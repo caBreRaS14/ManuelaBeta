@@ -1,0 +1,65 @@
+import {writeFile,mkdir} from 'node:fs/promises';
+const targets=await fetch('http://127.0.0.1:9222/json').then(r=>r.json());
+const socket=new WebSocket(targets.find(t=>t.type==='page').webSocketDebuggerUrl);
+await new Promise(resolve=>socket.addEventListener('open',resolve,{once:true}));
+let seq=0;const pending=new Map();const errors=[];
+socket.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){const p=pending.get(m.id);pending.delete(m.id);m.error?p.reject(m.error):p.resolve(m.result)}if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails.text)});
+const send=(method,params={})=>new Promise((resolve,reject)=>{const id=++seq;pending.set(id,{resolve,reject});socket.send(JSON.stringify({id,method,params}))});
+const run=async expression=>{const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
+const wait=async expression=>{for(let i=0;i<100;i++){if(await run(`Boolean(${expression})`))return;await new Promise(r=>setTimeout(r,100))}throw Error('Timeout: '+expression)};
+const click=async text=>{await run(`(()=>{const b=[...document.querySelectorAll('button')].find(b=>b.textContent.trim()===${JSON.stringify(text)});if(!b)throw Error('Button missing');b.click()})()`)};
+const screenshot=async name=>{await run('document.fonts.ready.then(()=>true)');await run(`Promise.all([...document.images].map(i=>{i.loading='eager';return i.decode().catch(()=>{})})).then(()=>true)`);const r=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});await writeFile(`evidencias/${name}.png`,Buffer.from(r.data,'base64'))};
+const assert=(v,msg)=>{if(!v)throw Error(msg)};
+await mkdir('evidencias',{recursive:true});await send('Page.enable');await send('Runtime.enable');
+await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
+await send('Page.navigate',{url:'http://127.0.0.1:5173'});
+await wait(`document.querySelector('.hero-image') && !document.querySelector('.spinner')`);
+await screenshot('gearly-2-inicio-desktop');await click('Catálogo');await wait(`document.querySelectorAll('.product').length===18`);
+await run(`(()=>{const el=document.querySelector('input');const set=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set;set.call(el,'casco');el.dispatchEvent(new Event('input',{bubbles:true}))})()`);
+await wait(`document.querySelectorAll('.product').length===1`);
+await run(`(()=>{const el=document.querySelector('input');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,'');el.dispatchEvent(new Event('input',{bubbles:true}));const s=document.querySelector('select');s.value='running';s.dispatchEvent(new Event('change',{bubbles:true}))})()`);
+await wait(`document.querySelectorAll('.product').length===6`);
+await run(`(()=>{const s=document.querySelectorAll('select')[1];s.value='calzado';s.dispatchEvent(new Event('change',{bubbles:true}))})()`);
+await wait(`document.querySelectorAll('.product').length===2`);
+assert(await run(`[...document.querySelectorAll('.product-tags')].every(x=>x.textContent.includes('Running')&&x.textContent.includes('Calzado'))`),'Combined discipline/type filter failed');
+await click('Personalizar');await wait(`document.querySelector('.sport-choices')`);await click('Running');await click('Calzado');
+// Zero selected products must still produce real content recommendations.
+await click('DESCUBRIR MIS RECOMENDACIONES');await wait(`document.querySelector('.method')`);
+assert(await run(`document.querySelector('.method').textContent.includes('PERSONALIZACIÓN POR CONTENIDO') && document.querySelectorAll('.why').length===document.querySelectorAll('.product').length`),'Zero selections or explanations failed');
+await click('Ajustar preferencias');
+// Five unique products are allowed; a sixth must be rejected without changing the count.
+const chosen=await run(`[...document.querySelectorAll('.mini')].slice(0,5).map(b=>b.title)`);
+for(const name of chosen){await run(`document.querySelector('button[title='+CSS.escape(${JSON.stringify(name)})+']').click()`)}
+await wait(`document.querySelector('.selection-count').textContent.includes('5 de 5')`);
+await run(`document.querySelectorAll('.mini')[5].click()`);
+await wait(`document.querySelector('.error') && document.querySelector('.selection-count').textContent.includes('5 de 5')`);
+await click('DESCUBRIR MIS RECOMENDACIONES');await wait(`document.querySelector('.method')`);
+assert(await run(`![...document.querySelectorAll('.product h3')].some(h=>${JSON.stringify(chosen)}.includes(h.textContent))`),'Five selected products leaked');
+await click('Ajustar preferencias');
+for(const name of chosen){await run(`document.querySelector('button[title='+CSS.escape(${JSON.stringify(name)})+']').click()`)}
+await wait(`document.querySelector('.selection-count').textContent.includes('0 de 5')`);
+await run(`document.querySelector('button[title="Tenis de running ligeros"]').click()`);
+await wait(`document.querySelector('.selection-count').textContent.includes('1 de 5')`);
+await click('DESCUBRIR MIS RECOMENDACIONES');await wait(`document.querySelector('.method')`);
+assert(await run(`!document.querySelector('.error') && document.querySelector('.method').textContent.includes('PERSONALIZACIÓN POR CONTENIDO')`),'Personalization failed');
+assert(await run(`![...document.querySelectorAll('.product h3')].some(x=>x.textContent==='Tenis de running ligeros')`),'Selected product leaked');
+await screenshot('gearly-2-recomendaciones-desktop');
+const originalRanking=await run(`[...document.querySelectorAll('.product h3')].map(x=>x.textContent)`);
+await click('Ajustar preferencias');await click('Ciclismo');await click('DESCUBRIR MIS RECOMENDACIONES');await wait(`document.querySelector('.method')`);
+assert(JSON.stringify(originalRanking)!==JSON.stringify(await run(`[...document.querySelectorAll('.product h3')].map(x=>x.textContent)`)),'Changing preferences did not change the results');
+// A reload must restore saved preferences from the local backend, not a static UI list.
+await send('Page.reload');await wait(`document.querySelector('.hero-image') && !document.querySelector('.spinner')`);
+await run(`document.querySelector('.outline-btn').click()`);await wait(`document.querySelector('.sport-choices')`);
+assert(await run(`document.querySelectorAll('.sport-choices [aria-pressed="true"]').length===2 && document.querySelector('.selection-count').textContent.includes('1 de 5')`),'Saved profile was not restored');
+await click('DESCUBRIR MIS RECOMENDACIONES');await wait(`document.querySelector('.method')`);
+await click('Retirar mis preferencias');await wait(`!document.querySelector('.method') && document.querySelector('.success')`);
+await click('Explorar sin personalización');await wait(`document.querySelector('.method')?.textContent.includes('EXPLORACIÓN GENÉRICA')`);
+await send('Emulation.setDeviceMetricsOverride',{width:360,height:800,deviceScaleFactor:1,mobile:true});
+await run(`document.querySelector('.mobilemenu').click()`);await wait(`document.querySelector('.nav.open')`);await click('Inicio');await wait(`document.querySelector('.hero-image')`);
+assert(await run(`!document.querySelector('.nav.open')`),'Menu did not close');
+assert(await run(`document.documentElement.scrollWidth<=360`),'Mobile home overflow');await screenshot('gearly-2-inicio-mobile');
+await run(`document.querySelector('.category').click()`);await wait(`document.querySelectorAll('.product').length===6`);
+assert(await run(`document.documentElement.scrollWidth<=360`),'Mobile catalog overflow');await screenshot('gearly-2-catalogo-mobile');
+assert(await run(`[...document.images].filter(i=>i.complete&&i.naturalWidth===0).length===0`),'Broken image');assert(!errors.length,'Browser exception');
+await writeFile('evidencias/browser-qa.json',JSON.stringify({date:'2026-11-04',passed:true,checks:['home','catalog 18 products','search casco','combined running and calzado filters','preferences','zero selections with content recommendations','five unique selections','sixth selection rejected','remove individual selections','select article','real recommendations with explanations','selection exclusion for one and five products','modified preferences change the results','saved preferences survive reload','withdraw preferences','generic recommendations','mobile menu open/close','category navigation','360px overflow','visible images'],exceptions:errors},null,2));
+console.log('Browser QA passed');await send('Browser.close');socket.close();

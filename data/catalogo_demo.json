@@ -1,0 +1,20 @@
+[
+{"id":"run-01","nombre":"Tenis de running ligeros","disciplina":"running","tipo":"calzado","descripcion":"Calzado flexible para explorar rutas urbanas.","color":"#cfe6d5","icono":"👟"},
+{"id":"run-02","nombre":"Camiseta transpirable","disciplina":"running","tipo":"ropa","descripcion":"Prenda ligera para entrenamientos al aire libre.","color":"#e7ddf8","icono":"👕"},
+{"id":"run-03","nombre":"Cinturón de hidratación","disciplina":"running","tipo":"accesorios","descripcion":"Accesorio cómodo para salidas de carrera.","color":"#f8dcbf","icono":"💧"},
+{"id":"run-04","nombre":"Medias deportivas de carrera","disciplina":"running","tipo":"ropa","descripcion":"Medias pensadas para moverse con comodidad.","color":"#d4e8ff","icono":"🧦"},
+{"id":"run-05","nombre":"Gorra para correr","disciplina":"running","tipo":"accesorios","descripcion":"Visera deportiva para actividades exteriores.","color":"#f6e2be","icono":"🧢"},
+{"id":"bike-01","nombre":"Casco de ciclismo urbano","disciplina":"ciclismo","tipo":"proteccion","descripcion":"Protección para recorridos en bicicleta.","color":"#d3edee","icono":"🪖"},
+{"id":"bike-02","nombre":"Guantes de ciclismo","disciplina":"ciclismo","tipo":"accesorios","descripcion":"Accesorio para mejorar el agarre del manubrio.","color":"#f0dbee","icono":"🧤"},
+{"id":"bike-03","nombre":"Jersey de ciclismo","disciplina":"ciclismo","tipo":"ropa","descripcion":"Prenda ligera para recorridos de bicicleta.","color":"#e1ead3","icono":"👕"},
+{"id":"bike-04","nombre":"Luz recargable para bicicleta","disciplina":"ciclismo","tipo":"accesorios","descripcion":"Accesorio de visibilidad para recorridos.","color":"#f8deb1","icono":"🚲"},
+{"id":"bike-05","nombre":"Botella para ciclismo","disciplina":"ciclismo","tipo":"accesorios","descripcion":"Botella reutilizable para entrenamientos.","color":"#d1e9f7","icono":"🥤"},
+{"id":"fit-01","nombre":"Mancuernas de entrenamiento","disciplina":"entrenamiento","tipo":"equipamiento","descripcion":"Equipo versátil para ejercicios de fuerza.","color":"#e3e2f8","icono":"🏋️"},
+{"id":"fit-02","nombre":"Banda elástica de resistencia","disciplina":"entrenamiento","tipo":"equipamiento","descripcion":"Accesorio compacto para rutinas de movilidad.","color":"#d4efdd","icono":"💪"},
+{"id":"fit-03","nombre":"Colchoneta de ejercicio","disciplina":"entrenamiento","tipo":"equipamiento","descripcion":"Superficie práctica para ejercicios en piso.","color":"#f5d9cb","icono":"🧘"},
+{"id":"fit-04","nombre":"Short deportivo","disciplina":"entrenamiento","tipo":"ropa","descripcion":"Ropa cómoda para sesiones de actividad física.","color":"#e1e7ff","icono":"🩳"},
+{"id":"fit-05","nombre":"Guantes para fuerza","disciplina":"entrenamiento","tipo":"accesorios","descripcion":"Accesorio para actividades de gimnasio.","color":"#e8dfd1","icono":"🧤"},
+{"id":"run-06","nombre":"Tenis para rutas recreativas","disciplina":"running","tipo":"calzado","descripcion":"Alternativa de calzado deportivo para carrera.","color":"#f3dadd","icono":"👟"},
+{"id":"bike-06","nombre":"Rodilleras para bicicleta","disciplina":"ciclismo","tipo":"proteccion","descripcion":"Protección adicional para algunos recorridos.","color":"#d6e5e9","icono":"🛡️"},
+{"id":"fit-06","nombre":"Cuerda de salto","disciplina":"entrenamiento","tipo":"equipamiento","descripcion":"Equipo compacto para ejercicio cardiovascular.","color":"#ffebcb","icono":"〰️"}
+]

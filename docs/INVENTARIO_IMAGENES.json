@@ -1,0 +1,436 @@
+[
+  {
+    "path": "/images/categorias/ciclismo.webp",
+    "format": "WebP",
+    "width": 502,
+    "height": 232,
+    "ratio": 2.164,
+    "bytes": 19706
+  },
+  {
+    "path": "/images/categorias/entrenamiento.webp",
+    "format": "WebP",
+    "width": 510,
+    "height": 232,
+    "ratio": 2.198,
+    "bytes": 16558
+  },
+  {
+    "path": "/images/categorias/running.webp",
+    "format": "WebP",
+    "width": 509,
+    "height": 232,
+    "ratio": 2.194,
+    "bytes": 17452
+  },
+  {
+    "path": "/images/decoracion/audifonos.webp",
+    "format": "WebP",
+    "width": 177,
+    "height": 267,
+    "ratio": 0.663,
+    "bytes": 7090
+  },
+  {
+    "path": "/images/decoracion/bicicleta_icono.webp",
+    "format": "WebP",
+    "width": 188,
+    "height": 188,
+    "ratio": 1,
+    "bytes": 3326
+  },
+  {
+    "path": "/images/decoracion/botella.webp",
+    "format": "WebP",
+    "width": 176,
+    "height": 267,
+    "ratio": 0.659,
+    "bytes": 6094
+  },
+  {
+    "path": "/images/decoracion/botella_alternativa.webp",
+    "format": "WebP",
+    "width": 186,
+    "height": 229,
+    "ratio": 0.812,
+    "bytes": 4150
+  },
+  {
+    "path": "/images/decoracion/calzado_running_a.webp",
+    "format": "WebP",
+    "width": 213,
+    "height": 229,
+    "ratio": 0.93,
+    "bytes": 9420
+  },
+  {
+    "path": "/images/decoracion/calzado_running_b.webp",
+    "format": "WebP",
+    "width": 228,
+    "height": 267,
+    "ratio": 0.854,
+    "bytes": 12310
+  },
+  {
+    "path": "/images/decoracion/casco.webp",
+    "format": "WebP",
+    "width": 180,
+    "height": 267,
+    "ratio": 0.674,
+    "bytes": 10240
+  },
+  {
+    "path": "/images/decoracion/casco_alternativo.webp",
+    "format": "WebP",
+    "width": 177,
+    "height": 229,
+    "ratio": 0.773,
+    "bytes": 6298
+  },
+  {
+    "path": "/images/decoracion/colchoneta.webp",
+    "format": "WebP",
+    "width": 183,
+    "height": 267,
+    "ratio": 0.685,
+    "bytes": 8236
+  },
+  {
+    "path": "/images/decoracion/colchoneta_alternativa.webp",
+    "format": "WebP",
+    "width": 185,
+    "height": 229,
+    "ratio": 0.808,
+    "bytes": 6840
+  },
+  {
+    "path": "/images/decoracion/destello.webp",
+    "format": "WebP",
+    "width": 215,
+    "height": 188,
+    "ratio": 1.144,
+    "bytes": 3734
+  },
+  {
+    "path": "/images/decoracion/ia.webp",
+    "format": "WebP",
+    "width": 352,
+    "height": 188,
+    "ratio": 1.872,
+    "bytes": 9680
+  },
+  {
+    "path": "/images/decoracion/mancuernas.webp",
+    "format": "WebP",
+    "width": 180,
+    "height": 267,
+    "ratio": 0.674,
+    "bytes": 5424
+  },
+  {
+    "path": "/images/decoracion/mancuernas_alternativa.webp",
+    "format": "WebP",
+    "width": 171,
+    "height": 229,
+    "ratio": 0.747,
+    "bytes": 4224
+  },
+  {
+    "path": "/images/decoracion/mancuerna_icono.webp",
+    "format": "WebP",
+    "width": 194,
+    "height": 188,
+    "ratio": 1.032,
+    "bytes": 2270
+  },
+  {
+    "path": "/images/decoracion/mochila.webp",
+    "format": "WebP",
+    "width": 190,
+    "height": 267,
+    "ratio": 0.712,
+    "bytes": 7810
+  },
+  {
+    "path": "/images/decoracion/ondas.webp",
+    "format": "WebP",
+    "width": 359,
+    "height": 188,
+    "ratio": 1.91,
+    "bytes": 6340
+  },
+  {
+    "path": "/images/decoracion/reloj.webp",
+    "format": "WebP",
+    "width": 175,
+    "height": 267,
+    "ratio": 0.655,
+    "bytes": 8410
+  },
+  {
+    "path": "/images/decoracion/zapatilla_icono.webp",
+    "format": "WebP",
+    "width": 192,
+    "height": 188,
+    "ratio": 1.021,
+    "bytes": 3416
+  },
+  {
+    "path": "/images/hero/hero-alternativo.webp",
+    "format": "WebP",
+    "width": 1027,
+    "height": 333,
+    "ratio": 3.084,
+    "bytes": 54334
+  },
+  {
+    "path": "/images/hero/hero-principal.webp",
+    "format": "WebP",
+    "width": 912,
+    "height": 309,
+    "ratio": 2.951,
+    "bytes": 44010
+  },
+  {
+    "path": "/images/hero/hero-secundario.webp",
+    "format": "WebP",
+    "width": 617,
+    "height": 309,
+    "ratio": 1.997,
+    "bytes": 26268
+  },
+  {
+    "path": "/images/productos/bike-01.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 23838,
+    "productId": "bike-01",
+    "name": "Casco de ciclismo urbano",
+    "discipline": "ciclismo",
+    "type": "proteccion",
+    "provisional": false
+  },
+  {
+    "path": "/images/productos/bike-02.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 14364,
+    "productId": "bike-02",
+    "name": "Guantes de ciclismo",
+    "discipline": "ciclismo",
+    "type": "accesorios",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/bike-03.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 12956,
+    "productId": "bike-03",
+    "name": "Jersey de ciclismo",
+    "discipline": "ciclismo",
+    "type": "ropa",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/bike-04.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 15310,
+    "productId": "bike-04",
+    "name": "Luz recargable para bicicleta",
+    "discipline": "ciclismo",
+    "type": "accesorios",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/bike-05.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 15840,
+    "productId": "bike-05",
+    "name": "Botella para ciclismo",
+    "discipline": "ciclismo",
+    "type": "accesorios",
+    "provisional": false
+  },
+  {
+    "path": "/images/productos/bike-06.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 14536,
+    "productId": "bike-06",
+    "name": "Rodilleras para bicicleta",
+    "discipline": "ciclismo",
+    "type": "proteccion",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/fit-01.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 13862,
+    "productId": "fit-01",
+    "name": "Mancuernas de entrenamiento",
+    "discipline": "entrenamiento",
+    "type": "equipamiento",
+    "provisional": false
+  },
+  {
+    "path": "/images/productos/fit-02.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 15460,
+    "productId": "fit-02",
+    "name": "Banda elástica de resistencia",
+    "discipline": "entrenamiento",
+    "type": "equipamiento",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/fit-03.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 20344,
+    "productId": "fit-03",
+    "name": "Colchoneta de ejercicio",
+    "discipline": "entrenamiento",
+    "type": "equipamiento",
+    "provisional": false
+  },
+  {
+    "path": "/images/productos/fit-04.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 12730,
+    "productId": "fit-04",
+    "name": "Short deportivo",
+    "discipline": "entrenamiento",
+    "type": "ropa",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/fit-05.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 14354,
+    "productId": "fit-05",
+    "name": "Guantes para fuerza",
+    "discipline": "entrenamiento",
+    "type": "accesorios",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/fit-06.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 13884,
+    "productId": "fit-06",
+    "name": "Cuerda de salto",
+    "discipline": "entrenamiento",
+    "type": "equipamiento",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/run-01.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 27434,
+    "productId": "run-01",
+    "name": "Tenis de running ligeros",
+    "discipline": "running",
+    "type": "calzado",
+    "provisional": false
+  },
+  {
+    "path": "/images/productos/run-02.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 13342,
+    "productId": "run-02",
+    "name": "Camiseta transpirable",
+    "discipline": "running",
+    "type": "ropa",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/run-03.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 14764,
+    "productId": "run-03",
+    "name": "Cinturón de hidratación",
+    "discipline": "running",
+    "type": "accesorios",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/run-04.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 14120,
+    "productId": "run-04",
+    "name": "Medias deportivas de carrera",
+    "discipline": "running",
+    "type": "ropa",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/run-05.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 14078,
+    "productId": "run-05",
+    "name": "Gorra para correr",
+    "discipline": "running",
+    "type": "accesorios",
+    "provisional": true
+  },
+  {
+    "path": "/images/productos/run-06.webp",
+    "format": "WebP",
+    "width": 720,
+    "height": 720,
+    "ratio": 1,
+    "bytes": 30372,
+    "productId": "run-06",
+    "name": "Tenis para rutas recreativas",
+    "discipline": "running",
+    "type": "calzado",
+    "provisional": false
+  }
+]

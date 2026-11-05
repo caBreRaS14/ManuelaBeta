@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: gearly
+      POSTGRES_USER: gearly
+      POSTGRES_PASSWORD: gearly_local
+    ports:
+      - "5432:5432"
+    volumes:
+      - gearly_local_db:/var/lib/postgresql/data
+volumes:
+  gearly_local_db:

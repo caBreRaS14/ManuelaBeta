@@ -1,0 +1,3 @@
+Aquí se guardarán capturas tomadas de la aplicación real en Windows.
+No se incluyeron capturas generadas o simuladas.
+Lee docs/GUIA_DEMOSTRACION.md para ocho capturas recomendadas.

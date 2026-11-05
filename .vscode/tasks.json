@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Gearly: backend local (SQLite)",
+      "type": "process",
+      "command": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "args": ["-m", "uvicorn", "app.main:app", "--reload", "--host", "127.0.0.1", "--port", "8000"],
+      "options": {
+        "cwd": "${workspaceFolder}/backend",
+        "env": {"DATABASE_URL": "sqlite:///./gearly.db", "FRONTEND_ORIGIN": "http://127.0.0.1:5173", "SESSION_SECURE": "false"}
+      },
+      "problemMatcher": [],
+      "presentation": {"reveal": "always", "panel": "dedicated", "group": "gearly"}
+    },
+    {
+      "label": "Gearly: frontend local",
+      "type": "shell",
+      "command": "npm.cmd",
+      "args": ["run", "dev", "--", "--strictPort"],
+      "options": {"cwd": "${workspaceFolder}/frontend"},
+      "problemMatcher": [],
+      "presentation": {"reveal": "always", "panel": "dedicated", "group": "gearly"}
+    },
+    {
+      "label": "Gearly: iniciar prototipo local",
+      "dependsOn": ["Gearly: backend local (SQLite)", "Gearly: frontend local"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}
